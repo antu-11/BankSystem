@@ -11,8 +11,8 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/shopspring/decimal"
 
-	"github.com/the-vault/bank-backend/internal/errs"
-	"github.com/the-vault/bank-backend/internal/model"
+	"github.com/akdandapat/OmniLedger/internal/errs"
+	"github.com/akdandapat/OmniLedger/internal/model"
 )
 
 // Store wraps the database connection and exposes repository methods.

@@ -197,7 +197,7 @@ if !wasSet {
 ### 1️⃣ Clone & Configure
 
 ```bash
-git clone https://github.com/the-vault/bank-backend.git
+git clone https://github.com/akdandapat/OmniLedger.git
 cd bank-backend
 cp .env.example .env
 ```

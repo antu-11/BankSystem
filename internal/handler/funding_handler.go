@@ -11,9 +11,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
 
-	"github.com/the-vault/bank-backend/internal/auth"
-	"github.com/the-vault/bank-backend/internal/model"
-	"github.com/the-vault/bank-backend/internal/service"
+	"github.com/akdandapat/OmniLedger/internal/auth"
+	"github.com/akdandapat/OmniLedger/internal/model"
+	"github.com/akdandapat/OmniLedger/internal/service"
 )
 
 // FundingHandler exposes the system funding endpoint.

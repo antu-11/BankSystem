@@ -1,4 +1,4 @@
-module github.com/the-vault/bank-backend
+module github.com/akdandapat/OmniLedger
 
 go 1.22
 

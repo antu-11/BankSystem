@@ -10,10 +10,10 @@ import (
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/the-vault/bank-backend/internal/auth"
-	"github.com/the-vault/bank-backend/internal/errs"
-	"github.com/the-vault/bank-backend/internal/model"
-	"github.com/the-vault/bank-backend/internal/store"
+	"github.com/akdandapat/OmniLedger/internal/auth"
+	"github.com/akdandapat/OmniLedger/internal/errs"
+	"github.com/akdandapat/OmniLedger/internal/model"
+	"github.com/akdandapat/OmniLedger/internal/store"
 )
 
 const bcryptCost = 12

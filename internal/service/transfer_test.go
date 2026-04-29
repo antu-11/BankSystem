@@ -16,8 +16,8 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/shopspring/decimal"
 
-	"github.com/the-vault/bank-backend/internal/model"
-	"github.com/the-vault/bank-backend/internal/store"
+	"github.com/akdandapat/OmniLedger/internal/model"
+	"github.com/akdandapat/OmniLedger/internal/store"
 )
 
 const (

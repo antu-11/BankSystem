@@ -20,14 +20,14 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/rs/cors"
 
-	"github.com/the-vault/bank-backend/internal/auth"
-	"github.com/the-vault/bank-backend/internal/config"
-	"github.com/the-vault/bank-backend/internal/email"
-	"github.com/the-vault/bank-backend/internal/handler"
-	"github.com/the-vault/bank-backend/internal/logger"
-	"github.com/the-vault/bank-backend/internal/middleware"
-	"github.com/the-vault/bank-backend/internal/service"
-	"github.com/the-vault/bank-backend/internal/store"
+	"github.com/akdandapat/OmniLedger/internal/auth"
+	"github.com/akdandapat/OmniLedger/internal/config"
+	"github.com/akdandapat/OmniLedger/internal/email"
+	"github.com/akdandapat/OmniLedger/internal/handler"
+	"github.com/akdandapat/OmniLedger/internal/logger"
+	"github.com/akdandapat/OmniLedger/internal/middleware"
+	"github.com/akdandapat/OmniLedger/internal/service"
+	"github.com/akdandapat/OmniLedger/internal/store"
 )
 
 func main() {

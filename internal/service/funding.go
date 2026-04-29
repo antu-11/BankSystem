@@ -7,9 +7,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
 
-	"github.com/the-vault/bank-backend/internal/errs"
-	"github.com/the-vault/bank-backend/internal/model"
-	"github.com/the-vault/bank-backend/internal/store"
+	"github.com/akdandapat/OmniLedger/internal/errs"
+	"github.com/akdandapat/OmniLedger/internal/model"
+	"github.com/akdandapat/OmniLedger/internal/store"
 )
 
 // FundingService handles system-level funding (minting) operations.

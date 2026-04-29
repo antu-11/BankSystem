@@ -7,9 +7,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/the-vault/bank-backend/internal/errs"
-	"github.com/the-vault/bank-backend/internal/model"
-	"github.com/the-vault/bank-backend/internal/service"
+	"github.com/akdandapat/OmniLedger/internal/errs"
+	"github.com/akdandapat/OmniLedger/internal/model"
+	"github.com/akdandapat/OmniLedger/internal/service"
 )
 
 // TransferHandler exposes HTTP endpoints for the transfer service.

@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/the-vault/bank-backend/internal/auth"
-	"github.com/the-vault/bank-backend/internal/errs"
-	"github.com/the-vault/bank-backend/internal/model"
-	"github.com/the-vault/bank-backend/internal/service"
+	"github.com/akdandapat/OmniLedger/internal/auth"
+	"github.com/akdandapat/OmniLedger/internal/errs"
+	"github.com/akdandapat/OmniLedger/internal/model"
+	"github.com/akdandapat/OmniLedger/internal/service"
 )
 
 // AuthHandler exposes HTTP endpoints for the auth service.
