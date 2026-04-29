@@ -1,0 +1,39 @@
+# Render Infrastructure-as-Code
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: the-vault-api
+    runtime: docker
+    repo: https://github.com/YOUR_USERNAME/the-vault # ← replace with your repo URL
+    branch: main
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false                # set manually — Neon connection string
+      - key: REDIS_URL
+        sync: false                # set manually — Upstash host:port
+      - key: REDIS_PASSWORD
+        sync: false                # set manually — Upstash password
+      - key: REDIS_DB
+        value: "0"
+      - key: PORT
+        value: "8080"
+      - key: ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true        # Render auto-generates a random 256-bit secret
+      - key: CORS_ORIGIN
+        sync: false                # set manually — your Vercel frontend URL
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        value: noreply@thevault.dev

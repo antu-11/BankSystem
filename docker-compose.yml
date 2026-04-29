@@ -1,0 +1,104 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# The Vault — Docker Compose
+# Orchestrates: Go API, PostgreSQL 16, Redis 7
+# ══════════════════════════════════════════════════════════════════════════════
+
+services:
+  # ── PostgreSQL 16 ──────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: vault-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: vault_user
+      POSTGRES_PASSWORD: vault_pass
+      POSTGRES_DB: the_vault
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/V1__init_schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vault_user -d the_vault"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - vault-network
+
+  # ── Redis 7 ────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: vault-redis
+    restart: unless-stopped
+    command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - vault-network
+
+  # ── Go Backend (The Vault API) ─────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: "1.0.0"
+    container_name: vault-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgres://vault_user:vault_pass@postgres:5432/the_vault?sslmode=disable
+      REDIS_URL: redis:6379
+      REDIS_PASSWORD: ""
+      REDIS_DB: "0"
+      PORT: "8080"
+      ENV: production
+      JWT_SECRET: "${JWT_SECRET:-super-secret-change-in-prod}"
+      SMTP_HOST: "${SMTP_HOST:-smtp.gmail.com}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_USERNAME: "${SMTP_USERNAME:-}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD:-}"
+      SMTP_FROM: "${SMTP_FROM:-noreply@thevault.dev}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - vault-network
+
+  # ── Next.js Frontend ──────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vault-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://api:8080
+    depends_on:
+      - api
+    networks:
+      - vault-network
+    profiles:
+      - with-frontend
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  vault-network:
+    driver: bridge
