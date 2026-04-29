@@ -1,4 +1,4 @@
-// Package middleware provides HTTP middleware for The Vault API.
+// Package middleware provides HTTP middleware for the OmniLedger API.
 package middleware
 
 import (

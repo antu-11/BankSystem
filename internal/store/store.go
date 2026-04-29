@@ -1,4 +1,4 @@
-// Package store provides the data-access layer for The Vault.
+// Package store provides the data-access layer for OmniLedger.
 // All queries run through sqlx and operate on the PostgreSQL schema.
 package store
 

@@ -1,4 +1,4 @@
-// Package model defines the core domain types for The Vault banking system.
+// Package model defines the core domain types for OmniLedger.
 package model
 
 import (

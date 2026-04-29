@@ -1,4 +1,4 @@
-// Package handler contains the HTTP transport layer for The Vault API.
+// Package handler contains the HTTP transport layer for the OmniLedger API.
 package handler
 
 import (
@@ -52,7 +52,7 @@ func (h *TransferHandler) handleTransfer(w http.ResponseWriter, r *http.Request)
 }
 
 func handleHealth(w http.ResponseWriter, _ *http.Request) {
-	writeJSON(w, http.StatusOK, map[string]string{"status": "ok", "service": "the-vault"})
+	writeJSON(w, http.StatusOK, map[string]string{"status": "ok", "service": "omniledger"})
 }
 
 func writeJSON(w http.ResponseWriter, status int, data any) {

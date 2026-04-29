@@ -1,5 +1,5 @@
 # ══════════════════════════════════════════════════════════════════════════════
-# The Vault — Multi-Stage Dockerfile
+# OmniLedger — Multi-Stage Dockerfile
 # Final image: ~15 MB (scratch + static Go binary)
 # ══════════════════════════════════════════════════════════════════════════════
 

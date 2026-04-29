@@ -1,4 +1,4 @@
-// Package main bootstraps the API server for The Vault banking system.
+// Package main bootstraps the API server for OmniLedger.
 //
 // Initialization sequence: configuration, structured logger, Postgres,
 // Redis, email worker pool, rate limiter, dependency wiring, HTTP
@@ -100,7 +100,7 @@ func main() {
 	mux.HandleFunc("GET /api/v1/health", func(w http.ResponseWriter, _ *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
-		fmt.Fprint(w, `{"status":"ok","service":"the-vault"}`)
+		fmt.Fprint(w, `{"status":"ok","service":"omniledger"}`)
 	})
 
 	authHandler.RegisterAuthRoutes(mux)

@@ -1,5 +1,5 @@
 // Package auth provides JWT token generation, validation, and Redis-backed
-// blacklist management for The Vault banking system.
+// blacklist management for OmniLedger.
 package auth
 
 import (
@@ -51,7 +51,7 @@ func (tm *TokenManager) IssueToken(userID uuid.UUID, username string, isSystemUs
 	claims := &Claims{
 		RegisteredClaims: jwt.RegisteredClaims{
 			ID:        jti,
-			Issuer:    "the-vault",
+			Issuer:    "omniledger",
 			Subject:   userID.String(),
 			IssuedAt:  jwt.NewNumericDate(now),
 			ExpiresAt: jwt.NewNumericDate(now.Add(TokenTTL)),

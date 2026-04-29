@@ -1,4 +1,4 @@
-// Package errs defines domain-specific error types for The Vault.
+// Package errs defines domain-specific error types for OmniLedger.
 package errs
 
 import "errors"

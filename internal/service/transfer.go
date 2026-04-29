@@ -1,4 +1,4 @@
-// Package service contains the core business logic for The Vault.
+// Package service contains the core business logic for OmniLedger.
 package service
 
 import (

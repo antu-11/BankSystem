@@ -12,19 +12,19 @@ func RenderTemplate(job Job) (subject, body string) {
 	case JobTransactionFailed:
 		return renderTransactionFailed(job)
 	default:
-		return "The Vault Notification", "<p>You have a new notification from The Vault.</p>"
+		return "OmniLedger Notification", "<p>You have a new notification from OmniLedger.</p>"
 	}
 }
 
 func renderWelcome(job Job) (string, string) {
-	subject := "Welcome to The Vault 🏦"
+	subject := "Welcome to OmniLedger 🏦"
 	body := fmt.Sprintf(`
 <!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"></head>
 <body style="font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f0f; color: #e0e0e0; padding: 40px;">
   <div style="max-width: 560px; margin: auto; background: #1a1a2e; border-radius: 12px; padding: 32px; border: 1px solid #2a2a4a;">
-    <h1 style="color: #a78bfa; margin-top: 0;">Welcome to The Vault</h1>
+    <h1 style="color: #a78bfa; margin-top: 0;">Welcome to OmniLedger</h1>
     <p>Hello <strong>%s</strong>,</p>
     <p>Your account has been created successfully. You are now part of the most secure banking system ever built.</p>
     <hr style="border-color: #2a2a4a;">
@@ -56,7 +56,7 @@ func renderTransactionSuccess(job Job) (string, string) {
       <tr><td style="padding: 8px; color: #888;">Transaction ID</td><td style="padding: 8px; font-family: monospace; font-size: 12px;">%s</td></tr>
     </table>
     <hr style="border-color: #2a2a4a;">
-    <p style="font-size: 13px; color: #888;">This is an automated notification from The Vault.</p>
+    <p style="font-size: 13px; color: #888;">This is an automated notification from OmniLedger.</p>
   </div>
 </body>
 </html>`, job.Username, amount, direction, txnID)

@@ -1,4 +1,4 @@
-// Package logger initializes the global structured logger for The Vault.
+// Package logger initializes the global structured logger for OmniLedger.
 package logger
 
 import (

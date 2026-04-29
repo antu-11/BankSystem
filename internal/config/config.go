@@ -9,7 +9,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// Config holds all runtime configuration for The Vault.
+// Config holds all runtime configuration for OmniLedger.
 type Config struct {
 	DatabaseURL   string
 	RedisURL      string

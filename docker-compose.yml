@@ -1,5 +1,5 @@
 # ══════════════════════════════════════════════════════════════════════════════
-# The Vault — Docker Compose
+# OmniLedger — Docker Compose
 # Orchestrates: Go API, PostgreSQL 16, Redis 7
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -45,7 +45,7 @@ services:
     networks:
       - vault-network
 
-  # ── Go Backend (The Vault API) ─────────────────────────────────────────────
+  # ── Go Backend (OmniLedger API) ─────────────────────────────────────────────
   api:
     build:
       context: .
